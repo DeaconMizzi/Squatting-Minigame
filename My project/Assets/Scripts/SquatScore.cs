@@ -7,6 +7,7 @@ public class SquatScore : MonoBehaviour
 {
     public int completedSquats = 0;
     public TextMeshProUGUI squatsText;
+    public TextMeshProUGUI finalsquatsText;
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class SquatScore : MonoBehaviour
         if (squatsText != null)
         {
             squatsText.text = "Squats: " + completedSquats.ToString();
+            finalsquatsText.text = "Total Squats: " + completedSquats.ToString();
         }
         else
         {

@@ -8,7 +8,7 @@
         public KeyCode[] squatSequence = {KeyCode.LeftArrow, KeyCode.DownArrow, KeyCode.RightArrow, KeyCode.DownArrow};
         private float gameTimer = 15f;
         private SquatScore squatScore;
-
+        private SpriteChanger spriteChanger;
 
         public Transform leftPoint;
         public Transform downPoint;
@@ -17,7 +17,8 @@
         // Start is called before the first frame update
         void Start()
         {
-            squatScore = FindObjectOfType<SquatScore>();            
+            squatScore = FindObjectOfType<SquatScore>();
+            spriteChanger = GetComponent<SpriteChanger>();             
         }
 
         // Update is called once per frame
@@ -29,18 +30,21 @@
                     if (currentKey == 0)
                     {
                         transform.position = leftPoint.position;
+                        spriteChanger.ChangeToOriginalSprite();
                     }
                     else if (currentKey == 1)
                     {
-                        transform.position = downPoint.position;
+                        
+                        spriteChanger.ChangeToDownArrowSprite();
                     }
                     else if (currentKey == 2)
                     {
                         transform.position = rightPoint.position;
+                        spriteChanger.ChangeToOriginalSprite();
                     }
                     else if (currentKey == 3 && squatSequence[currentKey] == KeyCode.DownArrow) // Special case for going down from the right
                     {
-                        transform.position = downPoint.position;
+                        spriteChanger.ChangeToDownArrowSprite();
                     }
 
                     currentKey++;

@@ -6,8 +6,9 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     public float totalTime = 15f;
-    private float timer;
+    public float timer;
     public TextMeshProUGUI timerText;
+    private bool isTimerRunning = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(timer > 0f)
+       if(isTimerRunning && timer > 0f)
        {
         timer -= Time.deltaTime;
         UpdateTimerText();
@@ -38,5 +39,10 @@ public class Timer : MonoBehaviour
         {
             Debug.LogError("TextMeshPro is not assigned");
         }
+    }
+
+    public void StartTimer()
+    {
+        isTimerRunning = true;
     }
 }
