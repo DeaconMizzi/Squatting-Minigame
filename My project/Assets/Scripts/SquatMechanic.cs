@@ -9,7 +9,7 @@
         private float gameTimer = 15f;
         private SquatScore squatScore;
         private SpriteChanger spriteChanger;
-
+        
         public Transform leftPoint;
         public Transform downPoint;
         public Transform rightPoint;
